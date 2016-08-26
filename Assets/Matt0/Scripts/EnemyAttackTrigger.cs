@@ -38,7 +38,7 @@ public class EnemyAttackTrigger : MonoBehaviour
         }
 
         if (EnemyAttackHit.gameObject.tag == ("EnemyAttack") && (actionnow == true) && (goawayflg == true) && (HpBarCtrl.escapenow == false)) {
-            Debug.Log("goaway");    
+            //Debug.Log("goaway");    
             
             //転倒フラグ送る場所
 			UnityChanController.DamageAnimationUnitychan(goawayflg);
