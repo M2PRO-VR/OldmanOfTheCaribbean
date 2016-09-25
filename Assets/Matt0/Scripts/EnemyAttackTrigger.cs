@@ -33,17 +33,17 @@ public class EnemyAttackTrigger : MonoBehaviour
         {
             _enemyparent = EnemyAttackHit.gameObject.transform.root.gameObject;
             HpBarCtrl.Damage(_enemyparent.gameObject.GetComponent<EnemyController>().EnemyDamage, Damageflg);
-            //Debug.Log("ok");
+            // Debug.Log("ok");
             Invoke("Stopflg", 1.5f); 
         }
 
         if (EnemyAttackHit.gameObject.tag == ("EnemyAttack") && (actionnow == true) && (goawayflg == true) && (HpBarCtrl.escapenow == false)) {
-            Debug.Log("goaway");    
+            // Debug.Log("goaway");    
             
-            //転倒フラグ送る場所
+            // 転倒フラグ送る場所
 			UnityChanController.DamageAnimationUnitychan(goawayflg);
 		
-            //trueしか送らないから、goawayflgでfalseの処理を使いたかったらキャラクタコントローラで切り替える
+            // trueしか送らないから、goawayflgでfalseの処理を使いたかったらキャラクタコントローラで切り替える
             EnemyController.Atkflg(false);
             Invoke("StopAtk", goawayTime);
         }

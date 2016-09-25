@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class WeaponAttack : MonoBehaviour {
-    public static float WeaponDamageAmount;   //武器のダメージ量　ChangeWeaponsKeyから値受け取り
+    public static float WeaponDamageAmount = 50;   //武器のダメージ量　ChangeWeaponsKeyから値受け取り
 	private float kickdamage= 20f;
     private bool WeaponDamageflg = false;
 	public static bool Kickflg=false;
@@ -223,14 +223,14 @@ public class WeaponAttack : MonoBehaviour {
     void OnTriggerEnter(Collider WeaponAttackHit)
     {
         //接触対象はこのタグですか？
-        if (WeaponAttackHit.gameObject.tag == ("WeaponAttack") && (WeaponActionFlg == true))
+        if (WeaponAttackHit.gameObject.tag == ("WeaponAttack") /*&& (WeaponActionFlg == true)*/)
         {
             DamageProcess(WeaponDamageAmount);
         }
-		if(WeaponAttackHit.gameObject.tag == "kick" && Kickflg == true && WeaponActionFlg == false){
+		/*if(WeaponAttackHit.gameObject.tag == "kick" && Kickflg == true && WeaponActionFlg == false){
 			DamageProcess (kickdamage);
             Kickflg = false;
-		}
+		}*/
     }
 
     public void DamageProcess(float DAMAGE) {
