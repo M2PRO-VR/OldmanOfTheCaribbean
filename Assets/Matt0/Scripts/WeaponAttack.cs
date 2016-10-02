@@ -42,7 +42,7 @@ public class WeaponAttack : MonoBehaviour {
     //死んだときのリポップ変数
     public GameObject rePoP;
     private float intervalTime = 0.0f;  //死ぬまでの時間（初期値3秒）
-    private float set_DIETIME = 3.0f;
+    private float set_DIETIME = 0.0f;
 
     //ターゲットカーソル表示用
     private GameObject targetCursor;
@@ -103,7 +103,7 @@ public class WeaponAttack : MonoBehaviour {
             {
                 //敵死亡エフェクト呼び出し場所
 				//effect.SetActive(true);
-                Invoke("EnemyDie_FadeOut", 1.0f);
+                Invoke("EnemyDie_FadeOut", 0.0f);
                 Invoke("re_POP", 600.0f);
                 System.Array.Clear(enemys, 0, enemys.Length);
                 enemys = GameObject.FindGameObjectsWithTag("Enemy");
@@ -324,7 +324,7 @@ public class WeaponAttack : MonoBehaviour {
     {
         effect = (GameObject)Instantiate(EnemyDie, gameObject.transform.position, gameObject.transform.rotation);
         gameObject.SetActive(false);
-        Invoke("die_effect", 2.0f);
+        Invoke("die_effect", 1.0f);
     }
 
     private void die_effect()
