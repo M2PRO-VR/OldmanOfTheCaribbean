@@ -48,8 +48,10 @@ public class WeaponThrow : MonoBehaviour {
         if(Throwflg == true)
         {
             //投げ部分（書き換え検討場所）
-            transform.LookAt(ReachPoint.transform); //EnemyのタグのついたオブジェクトStart()で検索してそっちの方向に向いて、そのあと飛んでいく(たぶん敵が複数いると使えません笑)
-            transform.Translate(transform.forward * KnifeSpeed * Time.deltaTime);
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward); //カメラ座標から前方向にレイを飛ばす
+            GetComponent<Rigidbody>().velocity = (ray.GetPoint(100) - transform.position).normalized * KnifeSpeed; //getpointで１００ｍ地点からカメラ座標を引いて，距離（方向）を出して正規化した後に任意の速度をかける
+            transform.LookAt(ray.GetPoint(100)); 
+            //transform.Translate(transform.forward * KnifeSpeed * Time.deltaTime);
             KnifeSpeed += 0.35f;
         }
 
