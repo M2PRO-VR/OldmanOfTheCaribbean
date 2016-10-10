@@ -9,7 +9,7 @@ public class SimpleCarControllerInvert : MonoBehaviour {
 
     private float motor;
     private float steering;
-    private Rigidbody rb;
+    //never used: private Rigidbody rb;
 
     private bool Control_flg = false;
 
@@ -17,7 +17,7 @@ public class SimpleCarControllerInvert : MonoBehaviour {
     {
         motor = 0.0f;
         steering = 0.0f;
-        rb = GetComponent<Rigidbody>();
+        //never used: rb = GetComponent<Rigidbody>();
     }
     public void FixedUpdate()
     {

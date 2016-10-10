@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     private float AttackRate = 3;
     //攻撃モーション関係
     private static bool AtkStartflg = true;
-    EnemyAttackTrigger enemytrigger;
+    //never used: EnemyAttackTrigger enemytrigger;
     public static bool Actionflg = true;
     //吹っ飛び攻撃(3回目のパンチ)関係
     private int goawayID; //stateのID
@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         HumanTypeEnemyPosition = transform;
-        enemytrigger = GetComponent<EnemyAttackTrigger>();
+        //never used: enemytrigger = GetComponent<EnemyAttackTrigger>();
         goawayID = Animator.StringToHash("Base Layer.Attack3");
 
         if (UseSkill == true)
@@ -213,7 +213,7 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        if (attack == true)
+        if (attack == true && this.tag != "DIED")
         {
             attack = false;
             animator.SetBool("Attack", attack);
@@ -246,7 +246,7 @@ public class EnemyController : MonoBehaviour
     private void Threeway()
     {
         AnimatorStateInfo Goawayanim = animator.GetCurrentAnimatorStateInfo(0);
-        if (Goawayanim.nameHash == goawayID)
+        if (Goawayanim.fullPathHash == goawayID)
         {
             Threeflg = true;
             //Debug.Log(Threeflg);

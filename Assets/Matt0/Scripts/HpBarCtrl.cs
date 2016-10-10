@@ -38,7 +38,7 @@ public class HpBarCtrl : MonoBehaviour
         // HP上昇
         if (_hp < PLAYER_HP && kirikae == false)
         {
-            _hp += ((int)PLAYER_HP/100);
+            _hp += ((int)PLAYER_HP/33);
             // HPゲージに値を設定
             _slider.value = _hp;
             hp.text = _hp + "/"+ _slider.maxValue;

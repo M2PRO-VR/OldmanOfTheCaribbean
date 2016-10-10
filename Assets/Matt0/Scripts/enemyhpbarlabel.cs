@@ -8,18 +8,18 @@ public class enemyhpbarlabel : MonoBehaviour{
     // target, targetオブジェクトの名前
     public GameObject GUIWatchPoint, NameObject;
     // target_Name_Chaser_Object, プレイヤーオブジェクト
-    private GameObject NameChaserObject, PlayerObj; 
+    private GameObject /*naver used: NameChaserObject,*/ PlayerObj; 
     // オブジェクトのワールド座標, オブジェクトのちょっと上の座標, オブジェクトのスクリーン座標
-    private Vector3 ObjectPoint, ObjectPointPlus, GUIScreenPoint;
+    //naver used: private Vector3 ObjectPoint, ObjectPointPlus, GUIScreenPoint;
     // プレイヤーとの距離, 敵の名前見える距離
-    private float distance_enemy, view_enemy = 30, ScreenHeight = Screen.height;
+    private float distance_enemy, view_enemy = 30/*naver used:, ScreenHeight = Screen.height*/;
     // 敵距離で表示フラグ, カメラに写っているかのフラグ
     private bool viewenemyflg = false, renderflg = false;
 
 
     void Start(){
 
-        NameChaserObject = GUIWatchPoint.gameObject.transform.FindChild("TargetNameChaser").gameObject;
+        //naver used: NameChaserObject = GUIWatchPoint.gameObject.transform.FindChild("TargetNameChaser").gameObject;
         PlayerObj = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -43,18 +43,18 @@ public class enemyhpbarlabel : MonoBehaviour{
 
     void Update(){
 
-        ScreenHeight = Screen.height;
+        //naver used: ScreenHeight = Screen.height;
 
         // Objectの座標を代入
         // 名前表示したいオブジェクトの子要素にあるTargetNameChaserの座標を取得して表示
-        ObjectPoint = NameChaserObject.transform.position;
-        ObjectPointPlus = new Vector3(0, 0, 0) + ObjectPoint;
+        //naver used: ObjectPoint = NameChaserObject.transform.position;
+        //naver used: ObjectPointPlus = new Vector3(0, 0, 0) + ObjectPoint;
 
-        GUIScreenPoint = Camera.main.WorldToScreenPoint(ObjectPointPlus);
+        //naver used: GUIScreenPoint = Camera.main.WorldToScreenPoint(ObjectPointPlus);
 
         distance_enemy = Vector3.Distance(PlayerObj.transform.position, GUIWatchPoint.transform.position);
 
-        if(distance_enemy <= view_enemy){
+        if (distance_enemy <= view_enemy){
 
             viewenemyflg = true;
 

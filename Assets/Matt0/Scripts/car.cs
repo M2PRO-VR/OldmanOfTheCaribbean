@@ -14,7 +14,7 @@ public class car : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.tag == "Enemy"){
-		GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
+		//never used: GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
 			other.gameObject.SendMessage ("DamageProcess", 200f);
 		Destroy (this.gameObject);
 		}

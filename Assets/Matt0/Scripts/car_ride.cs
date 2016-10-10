@@ -27,7 +27,7 @@ public class car_ride : MonoBehaviour
         {
             if (gameObject.transform.localEulerAngles.z >= 125 && gameObject.transform.localEulerAngles.z <= 235)
             {
-                GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
+                //never used: GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
                 animator.SetBool("sitdown", false);
                 RideOnBuggy.buggy_on_ride = false;
                 BeforeDestroy_Player_yAngle = Player.gameObject.transform.eulerAngles.y;
@@ -41,7 +41,7 @@ public class car_ride : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
+            //never used: GameObject effect_start = (GameObject)Instantiate(effect, gameObject.transform.position, gameObject.transform.rotation);
             other.gameObject.SendMessage("DamageProcess", 100f);
             animator.SetBool("sitdown", false);
             RideOnBuggy.buggy_on_ride = false;

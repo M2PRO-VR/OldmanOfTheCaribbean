@@ -8,16 +8,16 @@ public class EnemyAttackTrigger : MonoBehaviour
     private GameObject _enemyparent;
 
     private bool Damageflg = true;
-    HpBarCtrl hpbarctrl;
+    //never used: HpBarCtrl hpbarctrl;
     public static bool actionnow = false;
     public static bool goawayflg = false;
-	private float goawayTime = 4f; //吹っ飛び時間
+	private float goawayTime = 0f; //吹っ飛び時間
 
 
     // Use this for initialization
     void Start()
     {
-        hpbarctrl = GetComponent<HpBarCtrl>();
+        //never used: hpbarctrl = GetComponent<HpBarCtrl>();
     }
 
     // Update is called once per frame

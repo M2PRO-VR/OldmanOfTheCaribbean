@@ -16,15 +16,15 @@ public class UnityChanController : MonoBehaviour
 	private Vector3 tempvelocity;
 	private float speed = 0.0f;
 	private float timer=0;
-	private Transform player;
+	//never used: private Transform player;
 	static public bool player_attacknow;
 	CharacterController controller;
 	Animator animator;
-	Animation anim;
+	//never used: Animation anim;
 	AnimatorStateInfo stateinfo;
 	AnimatorStateInfo jumpstateinfo;
 	AnimatorStateInfo skilstateinfo;
-	private Transform mcamera;
+	//never used: private Transform mcamera;
 	private Vector3 mcamerajumpmae;
 	private Rigidbody rb;
 	public static bool Unitychandamaged = false;
@@ -40,14 +40,14 @@ public class UnityChanController : MonoBehaviour
 	Ray ray;
 	RaycastHit hit;
 	GameObject hitgameobject;
-	Camera mcamera_enabled;
+	//never used: Camera mcamera_enabled;
 	//Unityちゃんの声関係
 	public AudioSource audiosource;
 	public AudioClip attackVoice;
 	public AudioClip skillVoice;
 	private int attackvoiceStart=0;
 
-    GameObject buggy;
+    //never used: GameObject buggy;
     public static bool isBuggyRide = false;
     Vector3 buggyrotate;
 
@@ -59,12 +59,12 @@ public class UnityChanController : MonoBehaviour
         animator = GetComponent<Animator> ();
 		animator.Rebind ();
 		controller = GetComponent<CharacterController> ();
-		anim = GetComponent<Animation> ();
-		player = GetComponent<Transform> ();
-		mcamera = GameObject.Find ("Main Camera").GetComponent<Transform> ();
+		//never used: anim = GetComponent<Animation> ();
+		//never used: player = GetComponent<Transform> ();
+		//never used: mcamera = GameObject.Find ("Main Camera").GetComponent<Transform> ();
 		audiosource = GetComponent<AudioSource> ();
-		mcamera_enabled = GameObject.Find ("Main Camera").GetComponent<Camera> ();
-        buggy = GameObject.Find("Buggi (Ride)");
+		//never used: mcamera_enabled = GameObject.Find ("Main Camera").GetComponent<Camera> ();
+        //never used: buggy = GameObject.Find("Buggi (Ride)");
 
     }
 
@@ -95,7 +95,7 @@ public class UnityChanController : MonoBehaviour
 /*****************************************************************************************/
 	float GRAVITY=9.8f;
 	float jump = 0f;
-	bool jumpflag=false;
+	//never used: bool jumpflag=false;
 	//移動
 	void Move(){
 
@@ -203,7 +203,7 @@ public class UnityChanController : MonoBehaviour
 
 		} else if(controller.isGrounded == false){
 			jump -= GRAVITY * Time.deltaTime;
-			jumpflag = true;
+			//never used: jumpflag = true;
 
 		}
 

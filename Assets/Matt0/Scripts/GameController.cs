@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
     public UnityEngine.UI.Text ScoreLabel;
     public void Update()
     {
-        int count = GameObject.FindGameObjectsWithTag("Enemy").Length;
+       //never used: int count = GameObject.FindGameObjectsWithTag("Enemy").Length;
       //  ScoreLabel.text = count.ToString();
     }
 }

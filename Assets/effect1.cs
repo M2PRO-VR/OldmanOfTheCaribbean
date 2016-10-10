@@ -27,7 +27,7 @@ public class effect1 : MonoBehaviour
 	/// </summary>
 	private EffekseerHandle? handle;
 
-	private bool flag=true;
+    //naver used: private bool flag=true;
 
 	/// <summary>
 	/// エフェクトを再生

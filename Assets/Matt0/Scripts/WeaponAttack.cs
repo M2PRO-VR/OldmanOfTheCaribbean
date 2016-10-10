@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 public class WeaponAttack : MonoBehaviour {
     public static float WeaponDamageAmount = 50;   //武器のダメージ量　ChangeWeaponsKeyから値受け取り
-	private float kickdamage= 20f;
+	//naver used: private float kickdamage= 20f;
     private bool WeaponDamageflg = false;
 	public static bool Kickflg=false;
     private float EnemyMaxHp;   //Infoから最大HP受け取る
     private float EnemyCurrentHp; //InfoからHP受け取る
     private float BeforeCurrentHp;
     public static bool WeaponActionFlg = false;
-    private bool DestroyEnemyPOP = false;
+    //naver used: private bool DestroyEnemyPOP = false;
     private float GiftEnemyMaxHp; //Info変数
     private float GiftEnemyCurrentHp; //Info変数
     
@@ -105,13 +105,25 @@ public class WeaponAttack : MonoBehaviour {
 				//effect.SetActive(true);
                 Invoke("EnemyDie_FadeOut", 0.0f);
                 Invoke("re_POP", 600.0f);
-                System.Array.Clear(enemys, 0, enemys.Length);
+                //System.Array.Clear(enemys, 0, enemys.Length);
                 enemys = GameObject.FindGameObjectsWithTag("Enemy");
                 numberof_Enemy -= 1;
                 intervalTime = 0.0f;
             }
         }
 
+        if(WeaponAttack2.hs == true){
+            EnemyHpBarCtrl.enehp = 0;
+            EnemyCurrentHp = 0;
+            KOROSU = true;
+            this.tag = ("DIED");
+            Invoke("EnemyDie_FadeOut", 0.0f);
+            Invoke("re_POP", 600.0f);
+            //System.Array.Clear(enemys, 0, enemys.Length);
+            enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            numberof_Enemy -= 1;
+            intervalTime = 0.0f;
+        }
 
         //Tabボタンで好きな敵のHP表示
         if (Input.GetKeyDown(KeyCode.Tab))
