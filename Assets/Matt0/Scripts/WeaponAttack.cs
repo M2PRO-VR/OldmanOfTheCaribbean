@@ -123,6 +123,7 @@ public class WeaponAttack : MonoBehaviour {
             enemys = GameObject.FindGameObjectsWithTag("Enemy");
             numberof_Enemy -= 1;
             intervalTime = 0.0f;
+            WeaponAttack2.hs = false;
         }
 
         //Tabボタンで好きな敵のHP表示
