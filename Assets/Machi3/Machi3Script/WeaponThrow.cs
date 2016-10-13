@@ -21,13 +21,13 @@ public class WeaponThrow : MonoBehaviour {
     private bool DestroyTimeflg = false;
     private float intervalTime = 0;
     //敵オブジェクト自動探索
-    public GameObject ReachPoint;
+    //public GameObject ReachPoint;
 
 
 
     // Use this for initialization
     void Start () {
-        ReachPoint = GameObject.FindGameObjectWithTag("Enemy");
+        //ReachPoint = GameObject.FindGameObjectWithTag("Enemy");
 	}
 	
 	// Update is called once per frame
@@ -101,6 +101,7 @@ public class WeaponThrow : MonoBehaviour {
             Releaseflg4 = false;
             //Debug.Log("ring");
         }
+
     }
 
     void OnTriggerStay(Collider col)
