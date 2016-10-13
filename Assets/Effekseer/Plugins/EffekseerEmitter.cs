@@ -7,10 +7,12 @@ using System.Collections;
 /// </summary>
 public class EffekseerEmitter : MonoBehaviour
 {
-	/// <summary>
-	/// エフェクト名
-	/// </summary>
-	public string effectName;
+    private AudioSource sound02;
+
+    /// <summary>
+    /// エフェクト名
+    /// </summary>
+    public string effectName;
 
 	/// <summary>
 	/// Start時に再生開始するかどうか
@@ -36,7 +38,7 @@ public class EffekseerEmitter : MonoBehaviour
 		effectName = name;
 		Play();
 	}
-	
+
 	/// <summary>
 	/// 設定されているエフェクトを再生
 	/// </summary>
@@ -46,7 +48,8 @@ public class EffekseerEmitter : MonoBehaviour
 		h.SetRotation(transform.rotation);
 		h.SetScale(transform.localScale);
 		handle = h;
-	}
+        sound02.PlayOneShot(sound02.clip);
+    }
 	
 	/// <summary>
 	/// 再生中のエフェクトを停止
@@ -135,7 +138,9 @@ public class EffekseerEmitter : MonoBehaviour
 
 	void Start()
 	{
-		if (!String.IsNullOrEmpty(effectName)) {
+        sound02 = GetComponent<AudioSource>();
+
+        if (!String.IsNullOrEmpty(effectName)) {
 			EffekseerSystem.LoadEffect(effectName);
 			if (playOnStart) {
 				Play();

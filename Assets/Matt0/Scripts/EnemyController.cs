@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject Enemy_target;
     private GameObject after_Enemy_target;  //近づくとターゲット変更する変数
-    private float movedistance = 15; //感知距離
+    private float movedistance = 50; //感知距離
     private float returndistance = 30;  //回帰距離
     public GameObject PoP_position; //POP位置保存
 

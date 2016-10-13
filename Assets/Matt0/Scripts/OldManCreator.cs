@@ -20,7 +20,7 @@ public class OldManCreator : MonoBehaviour{
             time = 0;
 
             GameObject oldman = Instantiate(obj);
-            oldman.transform.localPosition = new Vector3(0f, -4f, 4f);
+            oldman.transform.localPosition = new Vector3(Random.Range(-4f, 4f), -4f,Random.Range(0f,30f));
 
             count++;
         }

@@ -7,5 +7,8 @@ public class Out : MonoBehaviour{
         
         if(col.gameObject.tag == "Player")
             col.gameObject.transform.position = new Vector3(0, 0, 0);
+
+        if(col.gameObject.tag == "Enemy")
+            col.gameObject.transform.position = new Vector3(0,-4,15);
     }
 }

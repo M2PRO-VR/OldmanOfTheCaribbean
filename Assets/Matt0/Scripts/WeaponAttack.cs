@@ -68,6 +68,8 @@ public class WeaponAttack : MonoBehaviour {
     private float Before_Restore;
     public GameObject EnemyDie; //敵死亡エフェクト
 
+    private AudioSource sound01;
+
     // Use this for initialization
     void Start () {
         EnemyMaxHp = GiftEnemyMaxHp;
@@ -86,6 +88,8 @@ public class WeaponAttack : MonoBehaviour {
         enemytargett = GameObject.FindGameObjectWithTag("Player");
 
         MaterialFinding = gameObject.transform.FindChild(MaterialObj.name).gameObject;
+
+        sound01 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -102,12 +106,13 @@ public class WeaponAttack : MonoBehaviour {
             if (intervalTime >= set_DIETIME)
             {
                 //敵死亡エフェクト呼び出し場所
-				//effect.SetActive(true);
+                //effect.SetActive(true);
                 Invoke("EnemyDie_FadeOut", 0.0f);
                 Invoke("re_POP", 600.0f);
                 //System.Array.Clear(enemys, 0, enemys.Length);
                 enemys = GameObject.FindGameObjectsWithTag("Enemy");
                 numberof_Enemy -= 1;
+                GameController.numenemies--;
                 intervalTime = 0.0f;
             }
         }
@@ -122,6 +127,7 @@ public class WeaponAttack : MonoBehaviour {
             //System.Array.Clear(enemys, 0, enemys.Length);
             enemys = GameObject.FindGameObjectsWithTag("Enemy");
             numberof_Enemy -= 1;
+            GameController.numenemies--;
             intervalTime = 0.0f;
             WeaponAttack2.hs = false;
         }
@@ -238,6 +244,7 @@ public class WeaponAttack : MonoBehaviour {
         //接触対象はこのタグですか？
         if (WeaponAttackHit.gameObject.tag == ("WeaponAttack") /*&& (WeaponActionFlg == true)*/)
         {
+            sound01.PlayOneShot(sound01.clip);
             DamageProcess(WeaponDamageAmount);
         }
 		/*if(WeaponAttackHit.gameObject.tag == "kick" && Kickflg == true && WeaponActionFlg == false){
