@@ -25,14 +25,14 @@ public class WeaponAttack : MonoBehaviour {
 
     //Tabで敵別々に表示する関係の変数
     private static GameObject[] enemys;
-    private float Enemyhpp;
-    private float maxEnemyhpp;
+    //naver used: private float Enemyhpp;
+    //private float maxEnemyhpp;
     private int i = 0;
     private float j = 0, k = 0;
     public static float numberof_Enemy;
-    private bool dmaaflg = true;
-    private float dmmma = 0;
-    private GameObject enemytargett;
+    //naver used: private bool dmaaflg = true;
+    //naver used: private float dmmma = 0;
+    //private GameObject enemytargett;
     private float targetDistance = 0;   //プレイヤーとの距離変数 
     private float appointDistance = 15; //指定範囲距離内のHP可視化変数
     private bool whilebol = true;
@@ -81,11 +81,11 @@ public class WeaponAttack : MonoBehaviour {
         BeforeCurrentHp = EnemyCurrentHp;
 
         //Tabボタンで好きな敵のHP表示変数
-        Enemyhpp = EnemyCurrentHp;
-        maxEnemyhpp = EnemyMaxHp;
+        //Enemyhpp = EnemyCurrentHp;
+        //maxEnemyhpp = EnemyMaxHp;
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
         numberof_Enemy = enemys.Length;
-        enemytargett = GameObject.FindGameObjectWithTag("Player");
+        //enemytargett = GameObject.FindGameObjectWithTag("Player");
 
         MaterialFinding = gameObject.transform.FindChild(MaterialObj.name).gameObject;
 
@@ -142,15 +142,15 @@ public class WeaponAttack : MonoBehaviour {
             }
 
             //プレイヤーとの距離を検索
-            targetDistance = Vector3.Distance(enemys[i].gameObject.transform.position, enemytargett.gameObject.transform.position);
+            //targetDistance = Vector3.Distance(enemys[i].gameObject.transform.position, enemytargett.gameObject.transform.position);
 
             //指定範囲内であれば
             if (targetDistance <= appointDistance)
             {
-                targetCursor = enemys[i].gameObject.transform.FindChild("enemy_point").gameObject;
+                //targetCursor = enemys[i].gameObject.transform.FindChild("enemy_point").gameObject;
                 Target_Cursor.TARGET_CURSOR = targetCursor;
-                EnemyHpBarCtrl.EnemyDamage(dmmma, dmaaflg, enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp, enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
-                Debug.Log("距離:" + targetDistance + "\nhp:" + enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
+                //EnemyHpBarCtrl.EnemyDamage(dmmma, dmaaflg, enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp, enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
+                //Debug.Log("距離:" + targetDistance + "\nhp:" + enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
                 //Debug.Log(enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp);
 
                 i += 1;
@@ -162,12 +162,12 @@ public class WeaponAttack : MonoBehaviour {
                 {
 
                     //プレイヤーとの距離を検索
-                    targetDistance = Vector3.Distance(enemys[i].gameObject.transform.position, enemytargett.gameObject.transform.position);
+                    //targetDistance = Vector3.Distance(enemys[i].gameObject.transform.position, enemytargett.gameObject.transform.position);
                     if (targetDistance <= appointDistance)
                     {
-                        targetCursor = enemys[i].gameObject.transform.FindChild("enemy_point").gameObject;
+                        //targetCursor = enemys[i].gameObject.transform.FindChild("enemy_point").gameObject;
                         Target_Cursor.TARGET_CURSOR = targetCursor;
-                        EnemyHpBarCtrl.EnemyDamage(dmmma, dmaaflg, enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp, enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
+                        //EnemyHpBarCtrl.EnemyDamage(dmmma, dmaaflg, enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp, enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
                         //Debug.Log("距離:" + targetDistance + "\nhp:" + enemys[i].gameObject.GetComponent<WeaponAttack>().Enemyhpp);
                         //Debug.Log(enemys[i].gameObject.GetComponent<WeaponAttack>().maxEnemyhpp);
                         whilebol = false;
@@ -278,7 +278,7 @@ public class WeaponAttack : MonoBehaviour {
             //Debug.Log(maxEnemyhp);
             WeaponDamageflg = false;
 
-            Enemyhpp = EnemyCurrentHp;
+            //Enemyhpp = EnemyCurrentHp;
         }
     }
 
@@ -309,7 +309,7 @@ public class WeaponAttack : MonoBehaviour {
             //Debug.Log(maxEnemyhp);
             Restoreflg = false;
 
-            Enemyhpp = EnemyCurrentHp;
+            //Enemyhpp = EnemyCurrentHp;
         }
     }
 

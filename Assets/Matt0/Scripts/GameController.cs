@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour{
 
-    public static int numenemies = 100;
+    public static int numenemies = 30;
     public UnityEngine.UI.Text ScoreLabel;
 
     public void Update(){
