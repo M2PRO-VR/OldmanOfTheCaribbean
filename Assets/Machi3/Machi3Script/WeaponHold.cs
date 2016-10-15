@@ -4,7 +4,9 @@ using System.Collections;
 public class WeaponHold : MonoBehaviour {
 
     public GameObject Knife;
+    public GameObject Knife2;
     private GameObject KnifeCopy;
+    private bool turnflg = false; //順番に投げる
     private bool instantiateflg = false;
 
     public static bool Trackflg = false;
@@ -19,15 +21,17 @@ public class WeaponHold : MonoBehaviour {
 
         if (instantiateflg == true && Trackflg == true)
         {
-            KnifeCopy = (GameObject)Instantiate(Knife, transform.position, transform.rotation);
+            if (turnflg == false)
+            {
+                KnifeCopy = (GameObject)Instantiate(Knife, transform.position, transform.rotation);
+                turnflg = true;
+            }
+            else if(turnflg == true)
+            {
+                KnifeCopy = (GameObject)Instantiate(Knife2, transform.position, transform.rotation);
+                turnflg = false;
+            }
             instantiateflg = false;
-        }
-
-        if(Trackflg == true)
-        {
-            KnifeCopy.transform.position = transform.position;
-            KnifeCopy.transform.eulerAngles = transform.transform.eulerAngles + new Vector3(180,0,0);
-            KnifeCopy.transform.position = KnifeCopy.transform.localPosition + new Vector3(0, -0.05f, 0);
         }
 
 	}

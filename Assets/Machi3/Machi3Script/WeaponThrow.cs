@@ -23,16 +23,27 @@ public class WeaponThrow : MonoBehaviour {
     //敵オブジェクト自動探索
     //public GameObject ReachPoint;
 
-
+    //ナイフを持っている時の手オブジェクト
+    private GameObject hand_palm;
 
     // Use this for initialization
     void Start () {
         //ReachPoint = GameObject.FindGameObjectWithTag("Enemy");
-	}
+        hand_palm = GameObject.Find("RigidRoundHand_R").gameObject.transform.FindChild("palm").gameObject;
+        transform.eulerAngles = hand_palm.transform.eulerAngles + new Vector3(180, 0, 0); ;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	    if(flg1 == true && flg2 == true && flg3 == true && flg4 == true)
+
+        if (Throwflg == false && WeaponHold.Trackflg == true && DestroyTimeflg == false)
+        {
+            transform.position = hand_palm.transform.position;
+            transform.position = transform.localPosition + new Vector3(0, -0.05f, 0);
+            transform.eulerAngles = hand_palm.transform.eulerAngles + new Vector3(180, 0, 0); ;
+        }
+
+        if (flg1 == true && flg2 == true && flg3 == true && flg4 == true)
         {
             flg = true;
         } 
@@ -100,6 +111,11 @@ public class WeaponThrow : MonoBehaviour {
         {
             Releaseflg4 = false;
             //Debug.Log("ring");
+        }
+
+        if(col.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
         }
 
     }
