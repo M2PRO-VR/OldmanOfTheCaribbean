@@ -40,7 +40,7 @@ public class WeaponThrow : MonoBehaviour {
         {
             transform.position = hand_palm.transform.position;
             transform.position = transform.localPosition + new Vector3(0, -0.05f, 0);
-            transform.eulerAngles = hand_palm.transform.eulerAngles + new Vector3(180, 0, 0); ;
+            transform.eulerAngles = hand_palm.transform.eulerAngles + new Vector3(180, 0, 0);
         }
 
         if (flg1 == true && flg2 == true && flg3 == true && flg4 == true)
