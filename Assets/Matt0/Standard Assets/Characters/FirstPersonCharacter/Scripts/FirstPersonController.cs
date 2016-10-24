@@ -41,7 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-
+        public float sidestep_decrease;
         // Use this for initialization
         private void Start()
         {
@@ -105,7 +105,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            m_MoveDir.x = desiredMove.x*speed;
+            //â°à⁄ìÆè¨Ç≥Ç≠Ç∑ÇÈ
+            m_MoveDir.x = desiredMove.x*speed / sidestep_decrease;
             m_MoveDir.z = desiredMove.z*speed;
 
 

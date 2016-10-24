@@ -13,6 +13,7 @@ public class EnemyAttackTrigger : MonoBehaviour
     public static bool goawayflg = false;
 	private float goawayTime = 0f; //吹っ飛び時間
 
+    public GameObject CameraObj;
 
     // Use this for initialization
     void Start()
@@ -20,10 +21,16 @@ public class EnemyAttackTrigger : MonoBehaviour
         //never used: hpbarctrl = GetComponent<HpBarCtrl>();
     }
 
+    void FixedUpdate()
+    {
+        //transform.localEulerAngles = new Vector3(0, CameraObj.transform.localEulerAngles.y, 0);
+        //Debug.Log(CameraObj.transform.localEulerAngles);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter(Collider EnemyAttackHit)
@@ -41,7 +48,7 @@ public class EnemyAttackTrigger : MonoBehaviour
             // Debug.Log("goaway");    
             
             // 転倒フラグ送る場所
-			UnityChanController.DamageAnimationUnitychan(goawayflg);
+			//UnityChanController.DamageAnimationUnitychan(goawayflg);
 		
             // trueしか送らないから、goawayflgでfalseの処理を使いたかったらキャラクタコントローラで切り替える
             EnemyController.Atkflg(false);

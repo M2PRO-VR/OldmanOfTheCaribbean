@@ -34,7 +34,7 @@ public class EnemyBowerController : MonoBehaviour
     public static bool Actionflg = true;
     //吹っ飛び攻撃(3回目のパンチ)関係
     private int goawayID; //stateのID
-    public static bool Threeflg = false;
+    private bool Threeflg2 = false;
 
     //敵の死んだフラグ
     public bool DIEDFLG = false;
@@ -76,7 +76,7 @@ public class EnemyBowerController : MonoBehaviour
     void Update()
     {
 
-        if(Threeflg == true)
+        if(Threeflg2 == true)
         {
                 transform.Translate(Vector3.up * 2f);
             if (copyflg == false) { 
@@ -265,19 +265,18 @@ public class EnemyBowerController : MonoBehaviour
         AnimatorStateInfo Goawayanim = animator.GetCurrentAnimatorStateInfo(0);
         if (Goawayanim.fullPathHash == goawayID)
         {
-            Threeflg = true;
-            Debug.Log(Threeflg);
+            Threeflg2 = true;
+            Debug.Log(Threeflg2);
             copyflg = false;
-            EnemyAttackTrigger.Goaway(Threeflg);
+            EnemyAttackTrigger.Goaway(Threeflg2);
             Invoke("StopThreeflg", 1.0f);
         }
     }
 
     private void StopThreeflg()
     {
-        Threeflg = false;
-        EnemyAttackTrigger.Goaway(Threeflg);
-        Debug.Log(Threeflg);
+        Threeflg2 = false;
+        Debug.Log(Threeflg2);
     }
 
     private void return_move()

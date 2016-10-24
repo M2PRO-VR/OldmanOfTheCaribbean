@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     private bool attack = false;
     //距離関係
     private float distance;
-    private float mindistance = 2;
+    private float mindistance = 3;
     //攻撃関係
     private float nextAttack;
     private float AttackRate = 3;
